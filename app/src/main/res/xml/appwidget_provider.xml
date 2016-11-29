@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="50dp"
+    android:minHeight="50dp"
+    android:updatePeriodMillis="86400000"
+    android:previewImage="@mipmap/lock"
+    android:initialLayout="@layout/widget"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen|keyguard"/>
+
+
+<!--
+minWidth & minHeight：定义了 Widget 的最小宽高，当 minWidth 和 minHeight 不是桌面 cell 的整数倍时，Widget 的宽高会被阔至与其最接近的 cells 大小。Google 官方给出了一个大致估算 minWidth & minHeight 的公式，根据 Widget 所占的 cell 数量来计算宽高：70 × n − 30，n 是所占的 cell 数量。
+updatePeriodMillis：定义了 Widget 的刷新频率，也就是 App Widget Framework 多久请求一次 AppWidgetProvider 的 onUpdate() 回调函数。该时间间隔并不保证精确，出于节约用户电量的考虑，Android 系统默认最小更新周期是 30 分钟，也就是说：如果您的程序需要实时更新数据，设置这个更新周期是 2 秒，那么您的程序是不会每隔 2 秒就收到更新通知的，而是要等到 30 分钟以上才可以，要想实时的更新 Widget，一般可以采用 Service 和 AlarmManager 对 Widget 进行更新。
+previewImage：当用户选择添加 Widget 时的预览图片。如果该属性没有定义，则展示 application 的 launcher icon。该属性是在 3.0 以后引入的。
+initialLayout：Widget 的布局 Layout 文件。
+configure：定义了用户在添加 Widget 时弹出的配置页面的 Activity，用户可以在此进行 Widget 的一些配置，该 Activity 是可选的，如果不需要可以不进行声明。
+resizeMode：Widget 在水平和垂直方向是否可以调整大小，值可以为：horizontal（水平方向可以调整大小），vertical（垂直方向可以调整大小），none（不可以调整大小），也可以 horizontal|vertical 组合表示水平和垂直方向均可以调整大小。
+widgetCategory：表示 Widget 可以显示的位置，包括 home_screen（桌面），keyguard（锁屏），keyguard 属性需要 5.0 或以上 Android 版本才可以。
+
+-->

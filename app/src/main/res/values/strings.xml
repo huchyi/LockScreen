@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lock</string>
+
+    <string name="widget_lock">Widget lock</string>
+</resources>
