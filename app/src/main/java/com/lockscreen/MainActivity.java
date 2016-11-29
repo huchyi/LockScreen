@@ -14,23 +14,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getIntentData();
         setContentView(R.layout.activity_main);
-    }
-
-    private void getIntentData() {
-        DevicePolicyManager devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        ComponentName componentName = new ComponentName(this, MyAdmin.class);
-        if (devicePolicyManager.isAdminActive(componentName)) {
-            devicePolicyManager.lockNow();
-            finish();
-        }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        getIntentData();
     }
 
     public void unlockScreen(View view) {
@@ -44,7 +28,7 @@ public class MainActivity extends Activity {
             intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,
                     componentName);
             intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,
-                    "需要激活设备管理器，才能使用");
+                    "需要激活设备管理器，才能使用,激活后再次重启应用生效");
             startActivity(intent);
         }
     }
